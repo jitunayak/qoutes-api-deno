@@ -5,7 +5,7 @@ const app = new Application();
 const router = new Router();
 
 router.get("/", (ctx) => {
-  ctx.response.body = quotes.get(Math.floor(Math.random() * 10));
+  ctx.response.body = quotes.get(Math.floor(Math.random() * quotes.size));
 });
 
 router.get("/:id", (ctx) => {
