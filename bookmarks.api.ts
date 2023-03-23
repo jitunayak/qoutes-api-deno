@@ -4,12 +4,12 @@ const port = Deno.env.get("PORT") || 8080;
 const app = new Application();
 const router = new Router();
 
-router.get("/api/v1/", (ctx) => {
+router.get("/api/v1/quotes/random", (ctx) => {
   const index = Math.floor(Math.random() * quotes.size);
   ctx.response.body = {id: index, quote: quotes.get(index)};
 });
 
-router.get("/api/v1/:id", (ctx) => { 
+router.get("/api/v1/quotes:id", (ctx) => { 
   if (quotes?.has(+ctx?.params?.id)) {
     ctx.response.body = { id:ctx?.params?.id, quote:quotes.get(+ctx.params.id)};
   }
